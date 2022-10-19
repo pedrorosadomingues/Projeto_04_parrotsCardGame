@@ -13,6 +13,15 @@ img {
     height: 150px;
 }
 
+@media (max-width: 614px) {
+    .cards-area {
+        flex-direction: column;
+        align-items: center;
+       } 
+}
+    
+
+
 
 
 .main-content {
@@ -28,6 +37,7 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     gap: 34px;
+
 }
 .card {
     background-color: #A7E9AF;
@@ -45,6 +55,7 @@ img {
 
     width: 117px;
     height: 146px;
+    
 }
 .back-card {
     background-color: #A7E9AF;
@@ -64,6 +75,14 @@ img {
 }
 
 .flipped img {
+    opacity: 1;
+}
+
+.flipped2 {
+    background-image: none;
+}
+
+.flipped2 img {
     opacity: 1;
 }
 

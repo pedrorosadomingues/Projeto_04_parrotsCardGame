@@ -2,41 +2,52 @@ let cardsNumber = 0;
 
 let cardsArea = document.querySelector(".cards-area");
 
-const backCards = ["./assets/images/bobrossparrot.gif", "./assets/images/bobrossparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/unicornparrot.gif", "./assets/images/unicornparrot.gif"];
+let backCards = ["./assets/images/bobrossparrot.gif", "./assets/images/bobrossparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/unicornparrot.gif", "./assets/images/unicornparrot.gif"];
 
 let contador = 0;
 
+let contador2 = 0;
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
+
 function flipCard(cardFlipped, cardsNumber) {
 
+  contador2 ++
+
   let firstCard = document.querySelector(".flipped");
-
-
+  let secondCard = document.querySelector(".flipped2");
+if ( firstCard !== null && secondCard !== null) {
+    return
+  
+}
   if (firstCard === null) {
     cardFlipped.classList.add("flipped");
   }
   if (firstCard !== null) {
 
-    cardFlipped.classList.add("flipped");
+    cardFlipped.classList.add("flipped2");
 
     if (cardFlipped.classList[1] === firstCard.classList[1]) {
 
       firstCard.classList.remove("flipped");
       firstCard.classList.add("matched");
       cardFlipped.classList.add("matched");
-      cardFlipped.classList.remove("flipped");
+      cardFlipped.classList.remove("flipped2");
       contador++;
     }
     if (cardFlipped.classList[1] !== firstCard.classList[1]) {
 
       setTimeout(function () {
         firstCard.classList.remove("flipped");
-        cardFlipped.classList.remove("flipped");
+        cardFlipped.classList.remove("flipped2");
       }, 1000);
     }
   }
   
   if (contador === cardsNumber / 2)
-    alert("You win!");
+    alert(`You won in ${contador2} turns!`);
 }
 
 function askNumber() {
@@ -52,7 +63,9 @@ function askNumber() {
     return askNumber();
   }
 
-  
+    backCards = backCards.slice(0, Number(cardsNumber));
+    backCards.sort(comparador);
+
   for (let i = 0; i < cardsNumber; i++) {
 
     let card = document.createElement("div");
@@ -64,11 +77,13 @@ function askNumber() {
     backCard.classList.add("hidden");
 
     card.onclick = function () { flipCard(this, Number(cardsNumber)) };
-
+    
     card.appendChild(backCard);
 
     cardsArea.appendChild(card);
   }
+  
 }
+
 askNumber();
 

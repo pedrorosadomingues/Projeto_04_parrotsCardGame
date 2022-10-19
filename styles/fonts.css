@@ -1,3 +1,4 @@
+
 .title-container h1 {
     font-family: 'Roboto', sans-serif;
 font-size: 56px;
@@ -5,4 +6,16 @@ font-weight: 700;
 line-height: 66px;
 
 color: #75B79E;
+}
+@media (max-width: 614px) {
+    .title-container h1 {
+ font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 66px;
+    text-align: center;
+    
+    color: #75B79E;
+    }
+  
 }
