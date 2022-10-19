@@ -1,0 +1,80 @@
+body {
+    background-color: #EEF9BF;
+}
+img {
+    width: 100px;
+}
+
+.top-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 150px;
+}
+
+
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-area {
+    
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 34px;
+}
+.card {
+    background-color: #A7E9AF;
+    background-image: url("../assets/images/back.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 117px;
+    height: 146px;
+}
+.back-card {
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 117px;
+    height: 146px;
+}
+
+.flipped {
+    background-image: none;
+}
+
+.flipped img {
+    opacity: 1;
+}
+
+.matched {
+    background-image: none;
+}
+
+.matched img {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+}
