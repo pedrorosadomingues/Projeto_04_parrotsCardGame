@@ -1,8 +1,25 @@
+@media (max-width: 614px) {
+    .cards-area {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 body {
     background-color: #EEF9BF;
 }
+
 img {
     width: 100px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.rotate {
+    transform: rotateY(360deg);
+    transition: 1s;
 }
 
 .top-game {
@@ -11,19 +28,26 @@ img {
     justify-content: center;
 
     height: 150px;
+
+    position: relative;
 }
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 
-@media (max-width: 614px) {
-    .cards-area {
-        flex-direction: column;
-        align-items: center;
-       } 
+    width: 100px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;   
+
+    background-color: black;
+    color: white;
 }
-    
-
-
-
-
 .main-content {
     display: flex;
     align-items: center;
@@ -31,21 +55,20 @@ img {
 }
 
 .cards-area {
-    
     width: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 34px;
-
 }
+
 .card {
     background-color: #A7E9AF;
     background-image: url("../assets/images/back.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
+
     border: 1px solid #99CEA8;
     border-radius: 5px;
 
@@ -55,8 +78,12 @@ img {
 
     width: 117px;
     height: 146px;
-    
+
+    cursor: pointer;
+
 }
+
+
 .back-card {
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
@@ -68,22 +95,31 @@ img {
 
     width: 117px;
     height: 146px;
+
 }
 
 .flipped {
     background-image: none;
+    transform: rotateY(180deg);
+    transition: 1s;
 }
 
 .flipped img {
     opacity: 1;
+    transform: rotateY(180deg);
+    transition: 1s;
 }
 
 .flipped2 {
     background-image: none;
+    transform: rotateY(180deg);
+    transition: 1s;
 }
 
 .flipped2 img {
     opacity: 1;
+    transform: rotateY(180deg);
+    transition: 1s;
 }
 
 .matched {
@@ -96,4 +132,5 @@ img {
 
 .hidden {
     opacity: 0;
+
 }

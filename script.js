@@ -8,6 +8,48 @@ let contador = 0;
 
 let contador2 = 0;
 
+let cronometro = document.querySelector(".timer");
+
+let minutos = 0;
+let segundos = 0;
+let finalTime = 0;
+let playAgain2 = null;
+
+function playAgain() {
+   if (playAgain2 !== null){
+    
+    if (playAgain2 !== "sim") {
+    playAgain2 = prompt("Do you want to play again?"); 
+     playAgain();
+  
+     } else { 
+      cardsArea.innerHTML = "";
+      cronometro.innerHTML = "";
+      minutos = 0;
+      segundos = 0;
+      contador = 0;
+      finalTime = 0;
+      contador2 = 0;
+      backCards = ["./assets/images/bobrossparrot.gif", "./assets/images/bobrossparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/explodyparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/fiestaparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/metalparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/revertitparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/tripletsparrot.gif", "./assets/images/unicornparrot.gif", "./assets/images/unicornparrot.gif"];
+       askNumber();
+    }
+  }
+}
+function timer () {
+
+  finalTime++;
+  segundos++;
+  if (segundos === 60) {
+    minutos++;
+    segundos = 0;
+  }
+
+  if (segundos < 10) {
+    segundos = "0" + segundos;
+  }
+  cronometro.innerHTML = minutos + ":" + segundos;
+
+}
 function comparador() { 
 	return Math.random() - 0.5; 
 }
@@ -41,19 +83,28 @@ if ( firstCard !== null && secondCard !== null) {
 
       setTimeout(function () {
         firstCard.classList.remove("flipped");
+        firstCard.classList.add("rotate");
         cardFlipped.classList.remove("flipped2");
-      }, 1000);
+        cardFlipped.classList.add("rotate");
+
+      }, 1500);
     }
   }
   
-  if (contador === cardsNumber / 2)
-    alert(`You won in ${contador2} turns!`);
+  if (contador === cardsNumber / 2){
+
+   alert(`You won in ${contador2} turns and ${finalTime} seconds!`);
+    clearInterval(1);
+    playAgain2 = prompt("Do you want to play again?");  
+    playAgain();
+  }
 }
 
 function askNumber() {
 
+  
   cardsNumber = prompt("How many cards do you want to play with?");
-
+  
   if (Number(cardsNumber) < 4 || Number(cardsNumber) > 14) {
     alert("Please enter a number between 3 and 15");
     return askNumber();
@@ -70,6 +121,7 @@ function askNumber() {
 
     let card = document.createElement("div");
     card.classList.add("card");
+   
     card.classList.add(backCards[i]);
     let backCard = document.createElement("img");
     backCard.src = backCards[i];
@@ -82,8 +134,11 @@ function askNumber() {
 
     cardsArea.appendChild(card);
   }
-  
+  const meuInterval = setInterval(timer, 1000);
+   
+    console.log(meuInterval);
 }
+
 
 askNumber();
 
